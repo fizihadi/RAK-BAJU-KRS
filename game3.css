@@ -1,0 +1,167 @@
+:root {
+    --bg-olive: #afb388;
+    --card-cream: #f5f0d3;
+    --pill-green: #6d7d54;
+    --text-pink: #ffb5c5;
+}
+
+body, html {
+    margin: 0; padding: 0; font-family: 'Oswald', sans-serif;
+    background-color: var(--bg-olive);
+    height: 100vh; width: 100vw;
+    display: flex; align-items: center; justify-content: center;
+    overflow: hidden; /* Prevents scrollbars */
+}
+
+#main-layout {
+    display: flex; 
+    width: 98%; 
+    max-width: 1600px; 
+    height: 80vh; 
+    gap: 15px; 
+    align-items: stretch;
+}
+
+/* Character Card - Tightened Padding */
+#character-card {
+    flex: 1; 
+    background: var(--card-cream); 
+    border-radius: 40px;
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    padding: 10px; /* Reduced from 30px */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+#character-drop-zone { 
+    flex: 1; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    width: 100%; 
+}
+
+#main-character { 
+    height: 90%; /* Maximize height within the card */
+    max-height: 550px;
+    width: auto; 
+    object-fit: contain; 
+}
+
+/* Wardrobe Section - Larger & Clearer */
+#wardrobe-card {
+    flex: 1.5; /* Given more space than the character */
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 40px; 
+    padding: 20px; 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center;
+}
+
+.items-grid {
+    display: grid; 
+    grid-template-columns: repeat(3, 1fr); /* 3 items per row to fill width */
+    gap: 20px; 
+    width: 100%;
+}
+
+.item-beret {
+    width: 200px;
+}
+
+/* Item Slot - Makes icons look like your reference image */
+.item-slot {
+    background: var(--card-cream);
+    border-radius: 5px;
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    aspect-ratio: 1/1;
+    box-shadow: inset 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.draggable { 
+    width: 100%; /* Icon fills the slot */
+    max-width: 180px;
+    height: auto;
+    cursor: grab;   
+    transition: transform 0.2s; 
+}
+
+.draggable:hover { transform: scale(1.1); }
+
+.locked { opacity: 0.1; pointer-events: none; filter: grayscale(1); }
+.hidden { opacity: 0; pointer-events: none; }
+
+/* Fixed overlapping text/pill */
+#instruction-pill {
+    background: var(--pill-green); color: white; padding: 10px 40px;
+    border-radius: 50px; font-size: 24px; margin-bottom: 15px;
+}
+
+.label-baju { font-size: 28px; font-weight: bold; padding-bottom: 10px; }
+.section-title { font-size: 32px; margin-bottom: 20px; }
+
+.nav-button {
+    margin-top: 15px;
+    padding: 15px 40px;
+    font-size: 20px;
+    border-radius: 15px;
+    background: #c5e6a6;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Update bahagian Mobile Media Query anda */
+@media (max-width: 768px) {
+    #game-screen {
+        justify-content: flex-start; /* Start from top instead of middle */
+        padding-top: 20px;
+    }
+
+    #instruction-pill {
+        width: 85%;
+        font-size: 18px;
+        margin-top: 10px; /* Jarakkan sedikit dari atas skrin */
+        margin-bottom: 10px;
+        min-width: unset;
+        padding: 10px 20px;
+    }
+
+    #main-layout {
+        flex-direction: column;
+        height: auto;
+        gap: 10px;
+    }
+
+    #character-card {
+        height: 350px; /* Kecilkan sedikit supaya muat satu skrin */
+        padding: 5px;
+    }
+
+    #main-character {
+        height: 280px;
+    }
+
+    #wardrobe-card {
+        padding: 10px;
+    }
+
+    .items-grid {
+        grid-template-columns: repeat(3, 1fr); /* Kekalkan 3 item sebaris */
+        gap: 8px;
+    }
+
+    .item-slot {
+        padding: 8px;
+        min-height: 80px; /* Pastikan slot tidak hilang */
+    }
+
+    .draggable {
+        max-width: 80px; /* Saiz ikon yang sesuai untuk jari */
+    }
+}

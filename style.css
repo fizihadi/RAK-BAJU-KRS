@@ -1,0 +1,162 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #000;
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+}
+
+/* Camo Sides */
+.camo-side {
+    width: 12%; 
+    height: 100%;
+    flex-shrink: 0;
+}
+
+.camo-side img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Center Content Area */
+.content-area {
+    background-color: #0d0d0d;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* This distributes space evenly between logo, title, and buttons */
+    justify-content: space-evenly; 
+    padding: 20px 0;
+}
+
+/* Logo Section */
+.logo-row {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+}
+
+.logo-box img {
+    height: 120px; 
+    width: auto;
+}
+
+/* Title Section */
+.text-center {
+    text-align: center;
+}
+
+.main-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: clamp(4rem, 7vw, 6.5rem);
+    color: #b1a06a;
+    letter-spacing: 5px;
+    line-height: 1.1;
+    text-transform: uppercase;
+}
+
+.sub-title {
+    font-family: 'Special Elite', cursive;
+    font-size: 1.8rem;
+    letter-spacing: 5px;
+    color: #d1d1d1;
+    margin-top: 5px;
+}
+
+/* Shield Buttons - Refined Size and Spacing */
+.button-row {
+    display: flex;
+    gap: 50px; /* Increased space between shields */
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.shield-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.shield-btn:hover {
+    transform: scale(1.1);
+}
+
+.shield-btn img {
+    /* Slightly smaller width to prevent crowding */
+    width: 200px; 
+    height: auto;
+}
+
+@media (max-width: 768px) {
+    /* Hide camo on very small screens to give more space, or make them thinner */
+    .camo-side {
+        width: 8%;
+    }
+
+    .main-title {
+        font-size: 2.5rem;
+        letter-spacing: 2px;
+    }
+
+    .sub-title {
+        font-size: 1.2rem;
+    }
+
+    .logo-box img {
+        height: 80px; /* Smaller logos on phone */
+    }
+
+    .button-row {
+        gap: 20px; /* Closer together on phone */
+    }
+
+    .shield-btn img {
+        width: 140px; /* Smaller shields on phone */
+    }
+}
+
+@media (max-width: 850px) {
+    body {
+        overflow-y: auto; /* Enable vertical scrolling for stacked items */
+    }
+
+    .content-area {
+        padding: 40px 10px;
+        justify-content: flex-start; /* Start from top so user can scroll down */
+        gap: 40px;
+    }
+
+    .camo-side {
+        width: 8%; /* Thinner camo on tablets/phones */
+    }
+
+    .main-title {
+        font-size: 2.8rem;
+    }
+
+    /* THE STACKING PART */
+    .button-row {
+        flex-direction: column; /* This stacks them vertically */
+        gap: 20px;
+    }
+
+    .shield-btn img {
+        width: 120px; /* Adjusted size for mobile view */
+    }
+}
+
+@media (max-width: 480px) {
+    .camo-side {
+        display: none; /* Remove camo on very small phones for more space */
+    }
+}

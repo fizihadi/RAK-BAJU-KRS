@@ -1,0 +1,123 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    /* The light olive/khaki background from your image */
+    background-color: #b5b682; 
+    font-family: 'Special Elite', cursive;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.scenario-wrapper {
+    width: 90%;
+    max-width: 1000px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Stars Styling */
+.stars-container {
+    margin-bottom: 10px;
+}
+
+.stars-img {
+    height: 60px;
+    width: auto;
+}
+
+/* The Brown Border Frame */
+.frame-outer {
+    background-color: #4b3621; /* Dark brown frame color */
+    padding: 15px;
+    border-radius: 40px; /* Rounded corners like the image */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    width: 100%;
+}
+
+.frame-inner {
+    border-radius: 25px;
+    overflow: hidden;
+    background-color: #fff;
+    display: flex;
+}
+
+.scenario-img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Footer Section */
+.footer-row {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin-top: 20px;
+}
+
+.situasi-text {
+    font-size: 3rem;
+    color: #1a1a1a;
+    text-align: center;
+}
+
+/* JOM Button Styling */
+.jom-button {
+    position: absolute;
+    right: 0;
+    background-color: #e2f9b8; /* Light lime green */
+    color: #1a1a1a;
+    padding: 12px 35px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.5rem;
+    font-weight: bold;
+    box-shadow: 0 4px 0px #8ea36d; /* 3D effect shadow */
+    transition: all 0.2s ease;
+}
+
+.jom-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 0px #8ea36d;
+}
+
+.jom-button:active {
+    transform: translateY(2px);
+    box-shadow: 0 0px 0px #8ea36d;
+}
+
+/* --- Mobile View --- */
+@media (max-width: 768px) {
+    .frame-outer {
+        padding: 10px;
+        border-radius: 20px;
+    }
+
+    .footer-row {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .jom-button {
+        position: static; /* Moves button below text on mobile */
+        width: 60%;
+        text-align: center;
+    }
+
+    .situasi-text {
+        font-size: 2rem;
+    }
+}
